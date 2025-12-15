@@ -10,8 +10,14 @@
 </head>
 
 <body>
+  <script>
+    const announcementText = "📢 Activity registration is open until the end of the month. Don't miss your spot!";
+  </script>
   <div class="announcement-banner" role="banner" aria-live="polite">
-    📢 Activity registration is open until the end of the month. Don't miss your spot!
+    <span id="announcement"></span>
+    <script>
+      document.getElementById('announcement').textContent = announcementText;
+    </script>
   </div>
   <header>
     <h1>Mergington High School</h1>
