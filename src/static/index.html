@@ -10,14 +10,8 @@
 </head>
 
 <body>
-  <script>
-    const announcementText = "📢 Activity registration is open until the end of the month. Don't miss your spot!";
-  </script>
-  <div class="announcement-banner" role="banner" aria-live="polite">
-    <span id="announcement"></span>
-    <script>
-      document.getElementById('announcement').textContent = announcementText;
-    </script>
+  <div id="announcement-container" class="hidden" role="banner" aria-live="polite">
+    <!-- Dynamic announcements will be inserted here -->
   </div>
   <header>
     <h1>Mergington High School</h1>
@@ -30,6 +24,10 @@
         </button>
         <div id="user-info" class="hidden">
           <span id="display-name"></span>
+          <button id="manage-announcements-button" class="icon-button hidden">
+            <span>📢</span>
+            <span>Announcements</span>
+          </button>
           <button id="logout-button">Logout</button>
         </div>
       </div>
@@ -138,6 +136,44 @@
         <button type="submit">Login</button>
       </form>
       <div id="login-message" class="hidden message"></div>
+    </div>
+  </div>
+
+  <!-- Manage Announcements Modal -->
+  <div id="announcements-modal" class="modal hidden">
+    <div class="modal-content announcements-modal-content">
+      <span class="close-announcements-modal">&times;</span>
+      <h3>Manage Announcements</h3>
+      <div id="announcements-list-container">
+        <div id="announcements-list">
+          <!-- List of announcements will be loaded here -->
+        </div>
+        <button id="add-announcement-button" class="add-announcement-btn">+ Add New Announcement</button>
+      </div>
+
+      <!-- Form for Add/Edit -->
+      <div id="announcement-form-container" class="hidden">
+        <h4 id="form-title">Add New Announcement</h4>
+        <form id="announcement-form">
+          <input type="hidden" id="announcement-id" value="" />
+          <div class="form-group">
+            <label for="announcement-message">Message:</label>
+            <textarea id="announcement-message" required placeholder="Enter announcement message" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="announcement-starts-at">Start Date (Optional):</label>
+            <input type="datetime-local" id="announcement-starts-at" />
+          </div>
+          <div class="form-group">
+            <label for="announcement-expires-at">Expiration Date (Required):</label>
+            <input type="datetime-local" id="announcement-expires-at" required />
+          </div>
+          <div class="form-actions">
+            <button type="button" id="cancel-announcement-button" class="cancel-btn">Cancel</button>
+            <button type="submit" class="submit-btn">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
