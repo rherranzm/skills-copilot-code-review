@@ -671,5 +671,6 @@ footer {
   text-align: center;
   padding: 15px;
   font-weight: bold;
+  margin: -12px -12px 12px -12px;
   margin-bottom: 16px;
 }
